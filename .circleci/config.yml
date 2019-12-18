@@ -1,8 +1,22 @@
 version: 2.1
 jobs: 
-  build:
+  build_app:
     docker: # Setup Environment
       - image: circleci/node:12.9.1-browsers
     steps:
       - checkout # checkout the code in the project directory
       - run: echo "App Run"
+  test_app:
+    docker: # Setup Environment
+      - image: circleci/node:12.9.1-browsers
+    steps:
+      - checkout
+      - run: echo "Test Steps completed"
+
+workflows:
+  version: 2
+  build_and_test_app:
+    jobs:
+      - build_app
+      - test_app
+  
