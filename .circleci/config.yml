@@ -3,12 +3,16 @@ jobs:
   build_app:
     docker: # Setup Environment
       - image: circleci/node:12.9.1-browsers
+    working_directory: ~/circleci-demo-project
+    parallelism: 2
     steps:
       - checkout # checkout the code in the project directory
       - run: echo "App Run"
   test_app:
     docker: # Setup Environment
       - image: circleci/node:12.9.1-browsers
+    working_directory: ~/circleci-demo-project
+    parallelism: 2
     steps:
       - checkout
       - run: echo "Test Steps completed"
