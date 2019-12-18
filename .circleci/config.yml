@@ -1,0 +1,8 @@
+version: 2.1
+jobs: 
+  build:
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    steps:
+      - checkout # checkout the code in the project directory
+      - run: npm install && npm start && echo "App Run"
